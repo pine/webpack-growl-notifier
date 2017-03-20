@@ -65,7 +65,7 @@ new WebpackGrowlNotifierPlugin({contentImage: path.join(__dirname, 'logo.png')})
 If set to `true`, warnings will not cause a notification.
 
 ```js
-new WebpackNotifierPlugin({excludeWarnings: true});
+new WebpackGrowlNotifierPlugin({excludeWarnings: true});
 ```
 
 ### Always Notify
@@ -73,7 +73,7 @@ new WebpackNotifierPlugin({excludeWarnings: true});
 Trigger a notification every time.  Call it "noisy-mode".
 
 ```js
-new WebpackNotifierPlugin({alwaysNotify: true});
+new WebpackGrowlNotifierPlugin({alwaysNotify: true});
 ```
 
 ### Skip Notification on the First Build
@@ -81,5 +81,5 @@ new WebpackNotifierPlugin({alwaysNotify: true});
 Do not notify on the first build.  This allows you to receive notifications on subsequent incremental builds without being notified on the initial build.
 
 ```js
-new WebpackNotifierPlugin({skipFirstNotification: true});
+new WebpackGrowlNotifierPlugin({skipFirstNotification: true});
 ```

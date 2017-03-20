@@ -1,18 +1,17 @@
 var stripANSI = require('strip-ansi');
 var path = require('path');
 var objectAssign = require('object-assign');
-var os = require('os');
-var notifier = require('node-notifier');
+var growly = require('growly')
 
 var DEFAULT_LOGO = path.join(__dirname, 'logo.png');
 
-var WebpackNotifierPlugin = module.exports = function(options) {
+var WebpackGrowlNotifierPlugin = module.exports = function(options) {
     this.options = options || {};
     this.lastBuildSucceeded = false;
     this.isFirstBuild = true;
 };
 
-WebpackNotifierPlugin.prototype.compileMessage = function(stats) {
+WebpackGrowlNotifierPlugin.prototype.compileMessage = function(stats) {
     if (this.isFirstBuild) {
         this.isFirstBuild = false;
 
@@ -53,21 +52,19 @@ WebpackNotifierPlugin.prototype.compileMessage = function(stats) {
     return stripANSI(message);
 };
 
-WebpackNotifierPlugin.prototype.compilationDone = function(stats) {
+WebpackGrowlNotifierPlugin.prototype.compilationDone = function(stats) {
     var msg = this.compileMessage(stats);
     if (msg) {
         var contentImage = ('contentImage' in this.options) ?
             this.options.contentImage : DEFAULT_LOGO;
 
-        notifier.notify(objectAssign({
-            title: 'Webpack',
-            message: msg,
-            contentImage: contentImage,
-            icon: (os.platform() === 'win32' || os.platform() === 'linux') ? contentImage : undefined
-        }, this.options));
+        growly.notify(msg, objectAssign({
+          title: 'Webpack',
+          icon: contentImage,
+        }, this.options))
     }
 };
 
-WebpackNotifierPlugin.prototype.apply = function(compiler) {
+WebpackGrowlNotifierPlugin.prototype.apply = function(compiler) {
     compiler.plugin('done', this.compilationDone.bind(this));
 };

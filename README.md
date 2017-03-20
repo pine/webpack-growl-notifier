@@ -4,15 +4,11 @@
 [![npm Version](https://img.shields.io/npm/v/webpack-notifier.svg)](https://www.npmjs.com/package/webpack-notifier)
 
 This is a [webpack](http://webpack.github.io/) plugin that uses the
-[node-notifier](https://github.com/mikaelbr/node-notifier) package to
+[growly](https://github.com/theabraham/growly) package to
 display build status system notifications to the user.
 
-![webpack-notifier screenshot](screenshot.png)
-
-> This is a fork of the
-[webpack-error-notification](https://github.com/vsolovyov/webpack-error-notification)
-plugin. It adds support for Windows and there is no need to manually install
-the `terminal-notifier` package on OS X anymore.
+> This is a fork of the [webpack-notifier](https://github.com/Turbo87/webpack-notifier) plugin.
+> I love Growl :heart:
 
 The plugin will notify you about the first run (success/fail),
 all failed runs and the first successful run after recovering from
@@ -24,11 +20,7 @@ is fine with your build.
 
 Use `npm` to install this package:
 
-    npm install --save-dev webpack-notifier
-
-Check the `node-notifier`
-[Requirements](https://github.com/mikaelbr/node-notifier#requirements)
-whether you need to install any additional tools for your OS.
+    npm install --save-dev webpack-growl-notifier
 
 
 ## Usage
@@ -36,13 +28,13 @@ whether you need to install any additional tools for your OS.
 In the `webpack.config.js` file:
 
 ```js
-var WebpackNotifierPlugin = require('webpack-notifier');
+var WebpackGrowlNotifierPlugin = require('webpack-growl-notifier');
 
 var config = module.exports = {
   // ...
 
   plugins: [
-    new WebpackNotifierPlugin(),
+    new WebpackGrowlNotifierPlugin(),
   ]
 },
 ```
@@ -55,7 +47,7 @@ var config = module.exports = {
 Title shown in the notification.
 
 ```js
-new WebpackNotifierPlugin({title: 'Webpack'});
+new WebpackGrowlNotifierPlugin({title: 'Webpack'});
 ```
 
 ### Content Image
@@ -65,7 +57,7 @@ Image shown in the notification.
 ```js
 var path = require('path');
 
-new WebpackNotifierPlugin({contentImage: path.join(__dirname, 'logo.png')});
+new WebpackGrowlNotifierPlugin({contentImage: path.join(__dirname, 'logo.png')});
 ```
 
 ### Exclude Warnings

@@ -7,8 +7,8 @@ This is a [webpack](http://webpack.github.io/) plugin that uses the
 [growly](https://github.com/theabraham/growly) package to
 display build status system notifications to the user.
 
-> This is a fork of the [webpack-notifier](https://github.com/Turbo87/webpack-notifier) plugin.
-> I love Growl :heart:
+> This is a fork of the [webpack-notifier](https://github.com/Turbo87/webpack-notifier) plugin
+> because I love Growl :heart:
 
 The plugin will notify you about the first run (success/fail),
 all failed runs and the first successful run after recovering from

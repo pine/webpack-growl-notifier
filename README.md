@@ -1,7 +1,7 @@
 # webpack-growl-notifier
 
 [![Build Status](https://img.shields.io/travis/pine/webpack-growl-notifier.svg)](https://travis-ci.org/pine/webpack-growl-notifier)
-[![npm Version](https://img.shields.io/npm/v/webpack-growl-notifier.svg)](https://www.npmjs.com/package/webpack-growl-notifier)
+[![npm Version](https://img.shields.io/npm/v/webpack-growl-notifier.svg)](https://www.npmjs.com/package/webpack-growl-notifier) [![Greenkeeper badge](https://badges.greenkeeper.io/pine/webpack-growl-notifier.svg)](https://greenkeeper.io/)
 
 This is a [webpack](http://webpack.github.io/) plugin that uses the
 [growly](https://github.com/theabraham/growly) package to
